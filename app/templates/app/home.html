@@ -3,29 +3,52 @@
 {% load static %}
 
 {% block content %}
-<div class="row align-items-center">
-  <!-- Profile Image -->
-  <div class="col-md-6 text-center">
-    <img src="{% static 'images/image.jpg' %}" 
-         alt="My Profile Photo" 
-         class="img-fluid rounded-circle shadow" 
-         style="max-width: 500px;">
-  </div>
 
-  <!-- Intro Text -->
-  <div class="col-md-6">
-    <h1 class="display-5 fw-bold">Hi, I'm <span class="text-primary"><br>Ashish Mahadev Pawar</span></h1>
-    <p class="lead">
-      <strong>Passionate Django Developer | Python Developer | software Developer</strong>
-    </p>
-    <p>
-      Welcome to my portfolio! Here you can explore my skills, projects, 
-      education background, and get in touch with me.
-    </p>
-
-    <!-- Buttons -->
-   
+<!-- Hero Section -->
+<section id="hero" class="bg-light text-center py-5">
+  <div class="container row align-items-center mx-auto">
+    <div class="col-md-6 text-center">
+      <img src="{% static 'images/image.jpg' %}" class="img-fluid rounded-circle shadow-lg border border-3 border-primary" style="max-width: 250px;">
+    </div>
+    <div class="col-md-6">
+      <h1 class="display-5 fw-bold">Hi, I'm <span class="text-primary">Ashish Mahadev Pawar</span></h1>
+      <p class="lead">Passionate Django Developer | Python Developer | Software Developer</p>
+      <div class="mt-4"  data-aos="fade-up" data-aos-delay="200">
+        <a href="{% static 'resume/my_resume.pdf' %}" target="_blank" class="btn btn-primary btn-lg me-2">📄 View Resume</a>
+        <a href="{% static 'resume/my_resume.pdf' %}" download class="btn btn-outline-success btn-lg">⬇️ Download Resume</a>
+      </div>
+    </div>
   </div>
-  
+</section>
+
+<!-- About Me Section -->
+<section id="about">
+  <div class="container">
+    <h2 class="text-center mb-4">About Me</h2>
+    <div class="row align-items-center">
+      
+      <div class="col-md-8" data-aos="fade-up" >
+        <p>Hello! I'm <strong>Ashish Mahadev Pawar</strong>, a passionate Django and Python developer. I love building modern web applications and solving real-world problems.</p>
+        <h5>Key Achievements:</h5>
+        <ul>
+          <li>Developed a full-featured maternity care system using Django.</li>
+          <li>Built a Food Donation platform with dynamic dashboards for multiple roles.</li>
+          <li>Created multiple projects showcasing Python, Django, REST APIs, and Bootstrap integration.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <!-- Social Links -->
+<div class="mt-3" data-aos="fade-up" data-aos-delay="300">
+  <a href="https://www.linkedin.com/in/ashish-pawar-256b5b1379" target="_blank" class="btn btn-primary me-2">
+    <i class="bi bi-linkedin"></i> LinkedIn
+  </a>
+  <a href="https://github.com/amp/" target="_blank" class="btn btn-dark">
+    <i class="bi bi-github"></i> GitHub
+  </a>
 </div>
+
+</section>
 {% endblock %}
