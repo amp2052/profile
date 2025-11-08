@@ -1,15 +1,99 @@
-
 {% extends 'app/base.html' %}
+{% load static %}
+
 {% block content %}
+
+<style>
+/* Fade-in animation on load */
+.education-item {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+/* Delay each item slightly */
+.education-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.education-item:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover transform */
+.education-item:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Text transition */
+.education-item p {
+  transition: color 0.3s ease;
+}
+
+.education-item:hover p {
+  color: #0d6efd;
+}
+</style>
 
 <section id="education" class="bg-light">
   <div class="container">
     <h2 class="text-center mb-4">Education</h2>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">B.Tech in Mechanical Engineering – D Batu University <br></li>
 
-      <li class="list-group-item">Diploma / Certifications – A G Patil Institute</li>
+      <li class="list-group-item education-item">
+        <strong>B.Tech in Mechanical Engineering – D Batu University</strong>
+        <p>Graduated with a Bachelor's degree in Mechanical Engineering.</p>
+        <p>Passing Year: 2021</p>
+      </li>
+
+      <li class="list-group-item education-item">
+        <strong>Diploma / Certifications – A G Patil Institute</strong>
+        <p>Completed diploma and certification courses at A G Patil Institute.</p>
+        <p>Passing Year: 2018</p>
+      </li>
+
+      <li class="list-group-item education-item">
+        <strong>SSC – V M Mehta Highschool Solapur</strong>
+        <p>Completed my secondary education at V M Mehta High School.</p>
+        <p>Passing Year: 2015</p>
+      </li>
+
     </ul>
   </div>
 </section>
+<!-- CERTIFICATIONS -->
+ 
+<section id="certifications" class="py-5 bg-white">
+  <div class="container">
+    <h2 class="text-center mb-5">Certifications</h2>
+
+    <div class="row align-items-center certification-card">
+      <div class="col-md-5 text-center">
+        <img src="{% static 'images/certificate1.jpg' %}" class="img-fluid rounded shadow cert-img" alt="Certificate Image">
+      </div>
+
+      <div class="col-md-7">
+        <h4>Python Full Stack Development</h4>
+        <p>
+          Completed hands-on full stack Python training including Django, REST Framework,
+          and database integration projects.
+        </p>
+        <p><strong>Issued By:</strong> iTpreneur Institute</p>
+        <p><strong>Year:</strong> 2025</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 {% endblock %}

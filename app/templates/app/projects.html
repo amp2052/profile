@@ -1,39 +1,188 @@
-
 {% extends 'app/base.html' %}
+{% load static %}
 {% block content %}
-<h2>Projects</h2>
-<!-- Projects Section -->
-<div class="col-md-4 mb-3" data-aos="zoom-in" data-aos-delay="100">
-  <div class="card shadow-sm h-100">
-    <div class="card-body">
-      <h5 class="card-title">Maternity Care System</h5>
-      <p class="card-text">Full-featured Django application with patient management and vaccine tracking.</p>
-      <p>the pregnant lady is registered with before and after vaccines all process is handled .</p>
-      <p>also for newborn baby</p>
+
+<style>
+/* Timeline base */
+.timeline {
+  position: relative;
+  padding: 20px 0;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #0d6efd;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 8px;
+}
+
+/* Timeline item */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px 30px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards;
+}
+
+.timeline-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.timeline-item:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.timeline-item:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+/* Animation */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item.right {
+  left: 50%;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border: 3px solid #0d6efd;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.timeline-item.left::before {
+  right: -10px;
+}
+
+.timeline-item.right::before {
+  left: -10px;
+}
+
+/* Card style */
+.timeline-card {
+  background: #fff;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.timeline-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+.timeline-img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+
+.timeline-img:hover {
+  transform: scale(1.04);
+}
+
+.tech-badge {
+  background: #e9ecef;
+  border-radius: 6px;
+  padding: 3px 8px;
+  font-size: 12px;
+  margin-right: 5px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 8px;
+  }
+  .timeline-item {
+    width: 100%;
+    padding-left: 40px;
+    text-align: left !important;
+  }
+  .timeline-item.left, .timeline-item.right {
+    left: 0;
+  }
+  .timeline-item::before {
+    left: 0;
+  }
+}
+</style>
+
+<section id="projects" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5">Projects Timeline</h2>
+
+    <div class="timeline">
+
+      <!-- Project 1 -->
+      <div class="timeline-item left">
+        <div class="timeline-card">
+          <!-- <img src="{% static 'images/maternity.png' %}" class="timeline-img"> -->
+          <h4>Maternity Care System</h4>
+          <p>Django application with patient registration, vaccines, PDF reports, newborn tracking & role dashboards.</p>
+
+          <span class="tech-badge">Django</span>
+          <span class="tech-badge">Bootstrap</span>
+          <span class="tech-badge">REST</span>
+          <br><br>
+          <a href="https://github.com/amp2052/Food-Bridge.git" target="_blank" class="btn btn-sm btn-primary">GitHub</a>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="timeline-item right">
+        <div class="timeline-card">
+          <!-- <img src="{% static 'images/foodbridge.png' %}" class="timeline-img"> -->
+          <h4>Food Bridge</h4>
+          <p>Donation management system connecting donors & NGOs with JWT, Celery tasks, approval workflows.</p>
+
+          <span class="tech-badge">JWT Auth</span>
+          <span class="tech-badge">Celery</span>
+          <span class="tech-badge">API</span>
+          <br><br>
+          <a href="https://github.com/amp2052/Food-Bridge.git" target="_blank" class="btn btn-sm btn-primary">GitHub</a>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="timeline-item left">
+        <div class="timeline-card">
+          <!-- <img src="{% static 'images/projects.png' %}" class="timeline-img"> -->
+          <h4>Other Python Projects</h4>
+          <p>Café billing system, automation tools, data analysis scripts, dashboards & utility apps.</p>
+
+          <span class="tech-badge">Python</span>
+          <span class="tech-badge">SQLite</span>
+          <span class="tech-badge">Automation</span>
+          <br><br>
+          <a href="" target="_blank" class="btn btn-sm btn-primary">GitHub</a>
+        </div>
+      </div>
+
     </div>
   </div>
-</div>
-
-<div class="col-md-4 mb-3" data-aos="zoom-in" data-aos-delay="200">
-  <div class="card shadow-sm h-100">
-    <div class="card-body">
-      <h5 class="card-title">Food Bridge</h5>
-      <p class="card-text">Dynamic dashboards for multiple roles and automated donation tracking.</p>
-      <p>I have made platform which is first of all take details of donors like restaurants, event,etc whose food is remaining.</p>
-      <p>And registers them with this and the all ready verified donors see this list and they can request them.</p>
-      <p>and collect from them to handover needy people.</p>
-    </div>
-  </div>
-</div>
-
-<div class="col-md-4 mb-3" data-aos="zoom-in" data-aos-delay="300">
-  <div class="card shadow-sm h-100">
-    <div class="card-body">
-      <h5 class="card-title">Other Python Projects</h5>
-      <p class="card-text">Various scripts and web applications showcasing Python skills.</p>
-    </div>
-  </div>
-</div>
-
+</section>
 
 {% endblock %}
