@@ -1,0 +1,38 @@
+/* Dark Mode */
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar {
+    background-color: #1f1f1f !important;
+}
+
+.navbar .nav-link {
+    color: #e0e0e0 !important;
+}
+
+.navbar .nav-link.active {
+    font-weight: bold;
+    border-bottom: 2px solid #0d6efd; /* blue highlight */
+}
+
+.footer {
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+}
+
+.card {
+    background-color: #1f1f1f;
+    border: 1px solid #333;
+}
+
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.progress-bar {
+    background-color: #198754; /* green skill bars */
+}

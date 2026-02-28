@@ -17,7 +17,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Security
 # ---------------------------
 SECRET_KEY = "django-insecure-5&w=n(6wlenqm5_x)c6fv2qu#v(h)+rp5wx3bujml&a3olpt_+"
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ["*"]  # replace with your domain in production
 
 # ---------------------------
@@ -38,13 +38,14 @@ INSTALLED_APPS = [
 # ---------------------------
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",  # serve static files in production
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    
 ]
 
 # ---------------------------
@@ -113,7 +114,7 @@ USE_TZ = True
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]   # local development
 STATIC_ROOT = BASE_DIR / "staticfiles"     # production collectstatic
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # ---------------------------
 # Default primary key field
 # ---------------------------
