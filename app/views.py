@@ -3,19 +3,19 @@ from django.core.mail import send_mail
 from django.contrib import messages
 from .middleware_utils import track_visit
 
-@track_visit
+# @track_visit
 def home(request):
     return render(request, 'app/home.html')
 
-@track_visit
+# @track_visit
 def skills(request):
     return render(request, 'app/skills.html')
 
-@track_visit
+# @track_visit
 def projects(request):
     return render(request, 'app/projects.html')
 
-@track_visit
+# @track_visit
 def education(request):
     return render(request, 'app/education.html')
 
@@ -27,7 +27,7 @@ from django.conf import settings
 from .middleware_utils import track_visit
 
 
-@track_visit
+# @track_visit
 def contact(request):
     if request.method == "POST":
         name = request.POST.get("name")

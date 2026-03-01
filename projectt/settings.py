@@ -19,10 +19,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # ---------------------------
 # Security
 # ---------------------------
-SECRET_KEY = "django-insecure-5&w=n(6wlenqm5_x)c6fv2qu#v(h)+rp5wx3bujml&a3olpt_+"
+SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = True
 ALLOWED_HOSTS = ["*"]  # replace with your domain in production
 
+# DEBUG = os.environ.get("DEBUG", "False") == "True"
+# ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
 # ---------------------------
 # Installed apps
 # ---------------------------
@@ -136,3 +138,4 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
 DEFAULT_FROM_EMAIL = "ampaws2052@gmail.com"
 SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY")
+SENDGRID_SANDBOX_MODE_IN_DEBUG = False
