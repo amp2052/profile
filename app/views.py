@@ -19,6 +19,14 @@ def projects(request):
 def education(request):
     return render(request, 'app/education.html')
 
+
+from django.shortcuts import render, redirect
+from django.core.mail import send_mail
+from django.contrib import messages
+from django.conf import settings
+from .middleware_utils import track_visit
+
+
 @track_visit
 def contact(request):
     if request.method == "POST":
@@ -26,17 +34,22 @@ def contact(request):
         email = request.POST.get("email")
         message = request.POST.get("message")
 
-        subject = f"New Contact Form Submission from {name}"
-        full_message = f"Sender: {name}\nEmail: {email}\n\nMessage:\n{message}"
+        full_message = f"""
+        Name: {name}
+        Email: {email}
+
+        Message:
+        {message}
+        """
 
         send_mail(
-            subject,
-            full_message,
-            "amp2052@gmail.com",
-            ["amp2052@gmail.com"],
+            subject="New Contact Form Message",
+            message=full_message,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=["ampaws2052@gmail.com"],
         )
 
-        messages.success(request, "Your message has been sent successfully!")
-        return redirect('contact')
+        messages.success(request, "Message sent successfully!")
+        return redirect("contact")
 
     return render(request, "app/contact.html")
